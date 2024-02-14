@@ -1,0 +1,20 @@
+INDEX VERSION 1.134+/Users/bruger/Documents/Github/DSL/.metadata/.plugins/org.eclipse.jdt.core
+2313714597.index
+1864236118.index
+2480375545.index
+2148854283.index
+213216662.index
+1113237931.index
+1104906458.index
+670912064.index
+3005018353.index
+2348870719.index
+979360402.index
+4030395975.index
+917879993.index
+1293538169.index
+1928887596.index
+2889449397.index
+4159897645.index
+1262497222.index
+3223183334.index
