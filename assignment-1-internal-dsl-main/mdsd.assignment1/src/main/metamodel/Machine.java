@@ -4,8 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Machine {
-	private List<State> states = new ArrayList<>(); 
+	private List<State> states = new ArrayList<State>();
 	private State initialState = null;
+
+	public Machine(List<State> states, State initialState) {
+		if (initialState == null) {
+			initialState = states.get(0);
+		}
+		this.initialState = initialState;
+		this.states = states;
+	}
 
 	public List<State> getStates() {
 		return states;
@@ -16,8 +24,7 @@ public class Machine {
 	}
 
 	public State getState(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		return states.stream().filter(state -> state.getName().equals(string)).findFirst().orElse(null);
 	}
 
 	public int numberOfIntegers() {
@@ -30,4 +37,3 @@ public class Machine {
 		return false;
 	}
 }
-

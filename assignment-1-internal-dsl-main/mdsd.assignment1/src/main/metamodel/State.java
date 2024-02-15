@@ -1,17 +1,22 @@
 package main.metamodel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class State {
+	private String name;
+	private List<Transition> transitions = new ArrayList<>();
+
+	public State(String string) {
+		this.name = string;
+	}
 
 	public Object getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	public List<Transition> getTransitions() {
-		// TODO Auto-generated method stub
-		return null;
+		return transitions;
 	}
 
 	public Transition getTransitionByEvent(String string) {
