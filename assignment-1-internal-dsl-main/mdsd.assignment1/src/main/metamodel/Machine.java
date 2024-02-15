@@ -6,6 +6,12 @@ import java.util.List;
 public class Machine {
 	private List<State> states = new ArrayList<>(); 
 	private State initialState = null;
+	
+	public Machine(List<State> states, State initialState) {
+		super();
+		this.states = states;
+		this.initialState = initialState;
+	}
 
 	public List<State> getStates() {
 		return states;

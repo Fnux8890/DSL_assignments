@@ -9,10 +9,14 @@ import main.metamodel.State;
 public class StateMachine {	
 	private Machine machine = null;
 	private List<State> states = new ArrayList<State>();
+	private State initialState = new State();
 	
 
 	public Machine build() {
-		machine = new Machine();
+		State iniState = states.isEmpty() 
+				? new State() 
+				: states.get(0);
+		machine = new Machine(states, iniState);
 		return machine;
 	}
 	
@@ -24,8 +28,8 @@ public class StateMachine {
 	}
 
 	public StateMachine initial() {
-		// TODO Auto-generated method stub
-		return null;
+		initialState = states.get(states.size()-1);
+		return this;
 	}
 
 	public StateMachine when(String string) {
