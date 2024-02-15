@@ -1,0 +1,27 @@
+{
+	"name": "Java + Xtext Development",
+	"image": "eclipse-temurin:11-jdk",
+	// "build": {
+	// 	"context": ".",
+	// 	"dockerfile": "Dockerfile"
+	// },
+	"forwardPorts": [
+		// List any ports to forward
+	],
+	"postCreateCommand": "/workspaces/DSL_assignments/xtext-setup.sh",
+	"remoteUser": "root",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"java.jdt.ls.java.home": "/opt/java/openjdk",
+				"terminal.integrated.shell.linux": "/bin/bash"
+			},
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"rust-lang.rust",
+				"Grammarcraft.xtext-lang",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	}
+}
