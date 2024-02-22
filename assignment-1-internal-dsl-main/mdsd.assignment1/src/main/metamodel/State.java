@@ -1,13 +1,13 @@
 package main.metamodel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class State {
 	private String name;
-	private List<Transition> transitions = new ArrayList<>();
+	private List<Transition> transitions;
 
-	public State(String string) {
+	public State(String string, List<Transition> transitions) {
+		this.transitions = transitions;
 		this.name = string;
 	}
 
@@ -20,7 +20,6 @@ public class State {
 	}
 
 	public Transition getTransitionByEvent(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		return transitions.stream().filter(transition -> transition.getEvent().equals(string)).findFirst().orElse(null);
 	}
 }
