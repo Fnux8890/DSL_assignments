@@ -31,7 +31,11 @@ public class MachineStructureTest {
 
 	@Test
 	public void states() {
-		Machine m = stateMachine.state("state 1").state("state 2").state("state 3").build();
+		Machine m = stateMachine
+				.state("state 1")
+				.state("state 2")
+				.state("state 3")
+				.build();
 		List<State> states = m.getStates();
 		assertEquals(3, m.getStates().size());
 		assertTrue(states.stream().anyMatch(state -> state.getName().equals("state 1")));

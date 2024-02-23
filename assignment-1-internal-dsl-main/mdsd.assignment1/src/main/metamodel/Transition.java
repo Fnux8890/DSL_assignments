@@ -33,7 +33,6 @@ public class Transition {
 		this.operationType = operationType;
 		this.operationValue = operationValue;
 		this.conditionType = conditionType == null ? ConditionType.NONE : conditionType;
-		System.out.println("Condition type: " + conditionType);
 		this.conditionValue = conditionValue;
 	}
 

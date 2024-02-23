@@ -1,7 +1,9 @@
 package main;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import main.metamodel.Machine;
 import main.metamodel.State;
@@ -25,13 +27,22 @@ public class MachineInterpreter {
     }
 
     public void processEvent(String eventName) {
-        Transition triggeredTransition = currentState.getTransitions().stream()
+        List<Transition> possibleTransitions = currentState.getTransitions().stream()
                 .filter(t -> eventName.equals(t.getEvent()))
-                .findFirst()
-                .orElse(null);
+                .collect(Collectors.toList());
 
-        if (triggeredTransition != null && canTransition(triggeredTransition)) {
-            executeTransition(triggeredTransition);
+        for (Transition transition : possibleTransitions) {
+            System.out.println("Checking transition from " + currentState.getName() + " to "
+                    + transition.getTarget().getName() + " on event " + eventName);
+            System.out.println("Operation type: " + transition.getOperationType());
+            System.out.println("Event name: " + eventName);
+
+            if (canTransition(transition)) {
+                System.out.println("Executing transition from " + currentState.getName() + " to "
+                        + transition.getTarget().getName() + " on event " + eventName);
+                executeTransition(transition);
+                break; // Exit the loop after executing the first valid transition
+            }
         }
     }
 

@@ -120,7 +120,6 @@ public class StateMachine {
 			throw new IllegalStateException("No current state or transitions defined.");
 		}
 		Transition lastTransition = currentState.getTransitions().get(currentState.getTransitions().size() - 1);
-		System.out.println("adding operation to last transition:" + conditionType);
 		lastTransition.updateOperationAndCondition(variableName, operationType, value, conditionType, conditionValue);
 	}
 
