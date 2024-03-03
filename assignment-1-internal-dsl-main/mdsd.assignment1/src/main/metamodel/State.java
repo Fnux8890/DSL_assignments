@@ -4,19 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class State {
-	private String stateName = "";
-	private List<Transition> transitions = new ArrayList<Transition>();
-	
-	public State() {
-		this.stateName = "";
+	private String name;
+	private List<Transition> transitions;
+
+	public State(String string, List<Transition> transitions) {
+		this.transitions = transitions;
+		this.name = string;
 	}
-	
-	public State(String stateName) {
-		this.stateName = stateName;
-	}
-	
+
 	public Object getName() {
-		return stateName;
+		return name;
 	}
 
 	public List<Transition> getTransitions() {
@@ -24,7 +21,6 @@ public class State {
 	}
 
 	public Transition getTransitionByEvent(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		return transitions.stream().filter(transition -> transition.getEvent().equals(string)).findFirst().orElse(null);
 	}
 }
